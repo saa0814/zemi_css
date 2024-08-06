@@ -1,0 +1,100 @@
+
+      .scr {
+        display: none;
+      }
+      .camera-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+      }
+      video {
+        width: 100%;
+        display: block; /* displayをblockに設定して横幅を強制する */
+      }
+      .guide-frame {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+
+        width: 60%;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        /* height: 60%; */
+        /* border: 2px dashed red; */
+        /* box-sizing: border-box; */
+        pointer-events: none; /* ガイド枠がクリックを妨げないようにする */
+      }
+      #photoF,
+      #photoB {
+        height: 200px;
+      }
+      /* メニュー */
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative; /* 位置を固定するために relative を設定 */
+        z-index: 1; /* メニューより上に表示されるように z-index を設定 */
+      }
+
+
+      #menu-icon {
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+
+      #nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* ヘッダーの下にメニューが表示されるように設定 */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        overflow: hidden;
+        height: 0; /* 初期状態では高さを0にする */
+        transition: height 0.3s ease-out; /* 高さのアニメーション */
+      }
+
+
+      #nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+
+      #nav-menu ul li {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+      }
+
+
+      #nav-menu ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+
+
+      /* メニューが表示されたときの状態 */
+      #nav-menu.show {
+        height: auto; /* 自動で高さを設定する */
+        display: block;
+      }
+      /* 背景を暗くするオーバーレイ */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+        display: none;
+        z-index: 1; /* メニューより下に表示されるように設定 */
+      }
